@@ -47,3 +47,18 @@
   []
   nil
 )
+
+(defn baja-california-sur
+  "BCS, not bad. Activos=confirmados. No descartados"
+  []
+  (let [source (html/html-resource(fetch "https://www.aguascalientes.gob.mx/coronavirus/"))
+        resultados {:clave-entidad "3"
+                    :entidad "Baja California Sur"
+                    :sospechosos (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 0)))
+                    :confirmados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 1)))
+                    :recuperados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 3)))
+                    :fallecidos  (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 2)))
+                    }
+        ]
+    resultados)
+  )
