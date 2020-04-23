@@ -64,6 +64,18 @@
     resultados)
   )
 
+(defn campeche
+  "No hay datos visibles"
+  []
+  (let [ resultados {:clave-entidad "4"
+                    :entidad "Campeche"
+                    :sospechosos "ND"
+                    :confirmados "ND"
+                    :recuperados "ND"
+                    :fallecidos  "ND"
+                    :timestamp (timestamp)
+                     }])
+  )
 
 (defn write-current-data
   "Write to a file EDN"
