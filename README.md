@@ -1,36 +1,38 @@
 # covid-19-estados
 
-FIXME: description
+Compara los datos publicados en las páginas web de cada estado con los publicados por la Federación.
 
-## Installation
+# Qué es y qué no es covid-19-estados
 
-Download from http://example.com/FIXME.
+ToDo: Extender este punto
 
-## Usage
+## Es un intento por responder preguntas que me hago sobre:
+- Sistema de vigilancia Sentinela
+- La complejidad de observar fenómenos a través de los datos generados
+- Muestreo y estadística
+- Cómo se comunica la información relevante
+- Que viene ahora y que viene después
 
-FIXME: explanation
+## Es un pretexto para aprender sobre:
+- Clojure
+-- Workflow and tooling
+- Programación funcional
+- Visualización basada en una semantica (Vega y Vega-Lite)
 
-    $ java -jar covid-19-estados-0.1.0-standalone.jar [args]
+## No es
+- Pretexto para generar controversias
+- Un medio para contradecir o exponer fallas
 
-## Options
+## Por qué
 
-FIXME: listing of options this app accepts.
+# Notas sobre los estados
 
-## Examples
+# Disclaimer
+Esto es lo que hay.
+Por favor te pido que me hagas saber cualquier error y estoy siempre atento a comentarios y sugerencias.
 
-...
 
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2020 FIXME
+Copyright © 2020 Rogelio Zárate
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
