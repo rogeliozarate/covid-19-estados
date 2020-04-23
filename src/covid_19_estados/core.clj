@@ -102,7 +102,8 @@
                     :recuperados "ND"
                     :fallecidos  "ND"
                     :timestamp (timestamp)
-                     }])
+                      }]
+     resultados)
 
   )
 
