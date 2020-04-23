@@ -87,7 +87,23 @@
                     :recuperados "ND"
                     :fallecidos  "ND"
                     :timestamp (timestamp)
-                     }])
+                      }]
+     resultados)
+
+  )
+
+(defn chihuahua
+  "link to a report with a image in it. Shame on you Gov. Corral"
+  []
+   (let [ resultados {:clave-entidad "7"
+                    :entidad "Chihuahua"
+                    :sospechosos "ND"
+                    :confirmados "ND"
+                    :recuperados "ND"
+                    :fallecidos  "ND"
+                    :timestamp (timestamp)
+                      }]
+     resultados)
 
   )
 
