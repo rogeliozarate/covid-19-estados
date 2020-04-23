@@ -77,6 +77,20 @@
                      }])
   )
 
+(defn coahuila
+  "Google data studio "
+  []
+   (let [ resultados {:clave-entidad "5"
+                    :entidad "Coahuila"
+                    :sospechosos "ND"
+                    :confirmados "ND"
+                    :recuperados "ND"
+                    :fallecidos  "ND"
+                    :timestamp (timestamp)
+                     }])
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
