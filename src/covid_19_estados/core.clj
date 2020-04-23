@@ -58,7 +58,15 @@
                     :confirmados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 1)))
                     :recuperados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 3)))
                     :fallecidos  (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 2)))
+                    :timestamp (timestamp)
                     }
         ]
     resultados)
+  )
+
+
+(defn write-current-data
+  "Write to a file EDN"
+  []
+  (spit "data/reporte-estados.edn" (conj {:date (timestamp) :data {:1 (aguascalientes)  :2 (baja-california-sur)}}) :append true)
   )
