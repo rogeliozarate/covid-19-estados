@@ -92,20 +92,36 @@
 
   )
 
-(defn chihuahua
-  "link to a report with a image in it. Shame on you Gov. Corral"
+(defn colima
+  ""
   []
-   (let [ resultados {:clave-entidad "7"
-                    :entidad "Chihuahua"
-                    :sospechosos "ND"
-                    :confirmados "ND"
-                    :recuperados "ND"
-                    :fallecidos  "ND"
-                    :timestamp (timestamp)
+  (let [ resultados {:clave-entidad "6"
+                      :entidad "Colima"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
                       }]
      resultados)
 
   )
+
+(defn chihuahua
+  "link to a report with a image in it. Shame on you Gov. Corral"
+  []
+   (let [ resultados {:clave-entidad "7"
+                      :entidad "Chihuahua"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+  )
+
+
 
 (defn write-current-data
   "Write to a file EDN"
