@@ -107,6 +107,21 @@
 
   )
 
+(defn chiapas
+  ""
+  []
+  (let [ resultados {:clave-entidad "7"
+                      :entidad "Chiapas"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn chihuahua
   "link to a report with a image in it. Shame on you Gov. Corral"
   []
