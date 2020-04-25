@@ -166,6 +166,24 @@
      resultados)
 
   )
+
+
+(defn guanajuato
+  ""
+  []
+  (let [ resultados {:clave-entidad "11"
+                      :entidad "Guanajuato"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
+
 (defn write-current-data
   "Write to a file EDN"
   []
