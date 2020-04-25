@@ -137,6 +137,21 @@
   )
 
 
+(defn ciudad-de-mexico
+  ""
+  []
+  (let [ resultados {:clave-entidad "9"
+                      :entidad "Ciudad de México"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 
 (defn write-current-data
   "Write to a file EDN"
