@@ -125,7 +125,7 @@
 (defn chihuahua
   "link to a report with a image in it. Shame on you Gov. Corral"
   []
-   (let [ resultados {:clave-entidad "7"
+   (let [ resultados {:clave-entidad "8"
                       :entidad "Chihuahua"
                       :sospechosos "ND"
                       :confirmados "ND"
