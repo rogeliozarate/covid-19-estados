@@ -24,7 +24,17 @@
   "An alternative fetch function to pass a User Agent string to the webserver."
   [url user-agent]
   (client/get url {:headers {"User-Agent" user-agent}})
-)
+  )
+
+(defn post-clj
+  "To request via server POST"
+  [url parameters]
+  
+  (client/post url parameters)
+  )
+
+;curl 'http://148.223.224.76:9058/get/registers/end' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0' -H 'Accept: */*' -H 'Accept-Language: es-MX,es;q=0.8,en-US;q=0.5,en;q=0.3' --compressed -H 'Content-Type: application/json;charset=UTF-8' -H 'Origin: http://coronavirus.hidalgo.gob.mx' -H 'Connection: keep-alive' -H 'Referer: http://coronavirus.hidalgo.gob.mx/' -H 'Cache-Control: max-age=0' --data '{}'
+
   
 
 (defn timestamp
@@ -212,6 +222,12 @@
                       }]
      resultados)
 
+  )
+
+(defn hidalgo
+  "Hidalgo has a complete json to retrieve via a post"
+  []
+  (post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})
   )
 
 (defn write-current-data
