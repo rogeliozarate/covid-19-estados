@@ -102,7 +102,6 @@
 
   (defn colima    
     "This is Colima. Some tweaking required"
-    ;;(nth (html/select(html/html-resource(java.io.StringReader. (:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))[:.pb-1]) 2)
   []
     (let [source  (html/select(html/html-resource(java.io.StringReader.(:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))[:.pb-1])
           resultados {:clave-entidad "6"
