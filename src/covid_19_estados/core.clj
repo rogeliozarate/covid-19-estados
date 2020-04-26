@@ -33,10 +33,6 @@
   (client/post url parameters)
   )
 
-;curl 'http://148.223.224.76:9058/get/registers/end' -H 'User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0' -H 'Accept: */*' -H 'Accept-Language: es-MX,es;q=0.8,en-US;q=0.5,en;q=0.3' --compressed -H 'Content-Type: application/json;charset=UTF-8' -H 'Origin: http://coronavirus.hidalgo.gob.mx' -H 'Connection: keep-alive' -H 'Referer: http://coronavirus.hidalgo.gob.mx/' -H 'Cache-Control: max-age=0' --data '{}'
-
-  
-
 (defn timestamp
   []
   (f/unparse (f/formatter :date-time) (t/minus (l/local-now)(t/hours 5)))
@@ -241,6 +237,22 @@
     resultados)
   )
 
+
+(defn jalisco
+  "This state reports federal plus UG plus particular data. I will take the total."
+  []
+
+
+  (let [source (html/html-resource(fetch "https://coronavirus.jalisco.gob.mx"))
+        resultados {:confirmados (first(:content(first(html/select source[:.bg-rojo-t.c-rojo :h5 :b]))))
+                    :sospechosos (first(:content(first(html/select source[:.bg-naranja-t.c-naranja :h5 :b]))))
+                    :descartados (first(:content(first(html/select source[:.bg-azul-t.c-azul :h5 :b]))))
+                    :fallecidos  (first(:content(first(html/select source[:.bg-gris-t.c-gris :h5 :b]))))
+                             }]
+    resultados)
+  
+  )
+  
 (defn write-current-data
   "Write to a file EDN"
   []
