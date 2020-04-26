@@ -4,6 +4,7 @@
             [clj-time.core :as t]
             [clj-time.format :as f]
             [clj-time.local :as l]
+            [cheshire.core :refer :all :as json]
 
             )
   )
@@ -182,18 +183,21 @@
 
 
 (defn guanajuato
-  ""
+  "Evrething is easy with a json. I wonder why they are not offering this in a open data repo, in time series, with
+  a methodological note."
   []
-  (let [ resultados {:clave-entidad "11"
-                      :entidad "Guanajuato"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
+  (let [source (:casos (json/parse-string(slurp "https://coronavirus.guanajuato.gob.mx/infectados.json") true))
+        resultados {:clave-entidad "11"
+                    :entidad     "Guanajuato"
+                    :descartados (:descartados    source)
+                    :sospechosos (:investigacion  source)
+                    :confirmados (:confirmados    source)
+                    :comunitaria (:comunitaria    source)
+                    :recuperados (:recuperados    source)
+                    :fallecidos  (:fallecidos     source)
+                    :timestamp   (timestamp)
                       }]
      resultados)
-
   )
 
 
