@@ -199,6 +199,20 @@
      resultados)
   )
 
+(defn guerrero
+  "No info."
+  []
+  (let [ resultados {:clave-entidad "12"
+                      :entidad "Guerrero"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
 
 (defn write-current-data
   "Write to a file EDN"
