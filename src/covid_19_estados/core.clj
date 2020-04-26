@@ -224,7 +224,9 @@
   "Hidalgo has a complete json to retrieve via a post"
   []
   (let [data (first(:results(:success(json/parse-string(:body(post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})) true))))
-        resultados{:estudiados     (:casos_estudiados     data)
+        resultados{:clave-entidad: "13"
+                   :estado         "Hidalgo"
+                   :estudiados     (:casos_estudiados     data)
                    :negativos      (:casos_negativos      data)
                    :sospechosos    (:casos_sospechosos    data)
                    :fallecidos     (:casos_defunciones    data)
