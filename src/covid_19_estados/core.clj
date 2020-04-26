@@ -183,7 +183,7 @@
 
 
 (defn guanajuato
-  "Evrething is easy with a json. I wonder why they are not offering this in a open data repo, in time series, with
+  "Everything is easy with a json. I wonder why they are not offering this in a open data repo, in time series, with
   a methodological note."
   []
   (let [source (:casos (json/parse-string(slurp "https://coronavirus.guanajuato.gob.mx/infectados.json") true))
