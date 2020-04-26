@@ -246,7 +246,9 @@
 
 
   (let [source (html/html-resource(fetch "https://coronavirus.jalisco.gob.mx"))
-        resultados {:confirmados (first(:content(first(html/select source[:.bg-rojo-t.c-rojo :h5 :b]))))
+        resultados {:clave-entidad "14"
+                    :estado "Jalisco"
+                    :confirmados (first(:content(first(html/select source[:.bg-rojo-t.c-rojo :h5 :b]))))
                     :sospechosos (first(:content(first(html/select source[:.bg-naranja-t.c-naranja :h5 :b]))))
                     :descartados (first(:content(first(html/select source[:.bg-azul-t.c-azul :h5 :b]))))
                     :fallecidos  (first(:content(first(html/select source[:.bg-gris-t.c-gris :h5 :b]))))
