@@ -7,7 +7,9 @@
                  [nrepl "0.7.0"]
                  [clj-http "3.10.1"]
                  [enlive "1.1.6"]
-                 [clj-time "0.15.2"]]
+                 [clj-time "0.15.2"]
+                 [cheshire "5.10.0"]]
+  
    :main ^:skip-aot covid-19-estados.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
