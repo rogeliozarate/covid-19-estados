@@ -19,6 +19,13 @@
   (java.net.URL. url)
   )
 
+(defn fetch-clj
+  "An alternative fetch function to pass a User Agent string to the webserver."
+  [url user-agent]
+  (client/get url {:headers {"User-Agent" user-agent}})
+)
+  
+
 (defn timestamp
   []
   (f/unparse (f/formatter :date-time) (t/minus (l/local-now)(t/hours 5)))
@@ -92,20 +99,100 @@
 
   )
 
-(defn chihuahua
-  "link to a report with a image in it. Shame on you Gov. Corral"
+  (defn colima    
+    "This is Colima. Some tweaking required"
+    ;;(nth (html/select(html/html-resource(java.io.StringReader. (:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))[:.pb-1]) 2)
   []
-   (let [ resultados {:clave-entidad "7"
-                    :entidad "Chihuahua"
-                    :sospechosos "ND"
-                    :confirmados "ND"
-                    :recuperados "ND"
-                    :fallecidos  "ND"
-                    :timestamp (timestamp)
+    (let [source  (html/select(html/html-resource(java.io.StringReader.(:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))[:.pb-1])
+          resultados {:clave-entidad "6"
+                      :entidad "Colima"
+                      :negativos   (clojure.string/trim (first(:content (nth source 0))))
+                      :sospechosos (clojure.string/trim (first(:content (nth source 1))))
+                      :confirmados (clojure.string/trim (first(:content (nth source 2))))
+                      :recuperados (clojure.string/trim (first(:content (nth source 3))))
+                      :fallecidos  (clojure.string/trim (first(:content (nth source 4))))
+                      :timestamp (timestamp)
                       }]
      resultados)
 
   )
+
+(defn chiapas
+  ""
+  []
+  (let [ resultados {:clave-entidad "7"
+                      :entidad "Chiapas"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
+(defn chihuahua
+  "link to a report with a image in it. Shame on you Gov. Corral"
+  []
+   (let [ resultados {:clave-entidad "8"
+                      :entidad "Chihuahua"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+  )
+
+
+(defn ciudad-de-mexico
+  ""
+  []
+  (let [ resultados {:clave-entidad "9"
+                      :entidad "Ciudad de México"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
+(defn durango
+  ""
+  []
+  (let [ resultados {:clave-entidad "10"
+                      :entidad "Durango"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
+
+(defn guanajuato
+  ""
+  []
+  (let [ resultados {:clave-entidad "11"
+                      :entidad "Guanajuato"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 
 (defn write-current-data
   "Write to a file EDN"
