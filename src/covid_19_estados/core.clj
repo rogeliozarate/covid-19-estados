@@ -166,7 +166,7 @@
   )
 
 (defn durango
-  ""
+  "Seems that Durango feels ok reporting via Tweeter. "
   []
   (let [ resultados {:clave-entidad "10"
                       :entidad "Durango"
