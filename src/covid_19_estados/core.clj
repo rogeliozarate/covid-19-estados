@@ -227,7 +227,18 @@
 (defn hidalgo
   "Hidalgo has a complete json to retrieve via a post"
   []
-  (post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})
+  (let [data (first(:results(:success(json/parse-string(:body(post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})) true))))
+        resultados{:estudiados     (:casos_estudiados     data)
+                   :negativos      (:casos_negativos      data)
+                   :sospechosos    (:casos_sospechosos    data)
+                   :fallecidos     (:casos_defunciones    data)
+                   :hospitalizados (:casos_hospitalizados data)
+                   :ambulatorios   (:casos_ambulatorios   data)
+                   :mujeres        (:casos_mujeres        data)
+                   :hombres        (:casos_hombres        data)
+                   :recuperados    (:casos_recuperados    data)}
+                   ]
+    resultados)
   )
 
 (defn write-current-data
