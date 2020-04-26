@@ -120,13 +120,16 @@
 (defn chiapas
   ""
   []
-  (let [ resultados {:clave-entidad "7"
-                      :entidad "Chiapas"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
+  (let [source (html/select (html/html-resource (fetch "http://coronavirus.saludchiapas.gob.mx/"))[:.card-title])
+        resultados {:clave-entidad "7"
+                    :entidad "Chiapas"
+                    :confirmados (first(:content (nth source 0)))
+                    :sospechosos (first(:content (nth source 1)))
+                    :negativos   (first(:content (nth source 2)))
+                    :recuperados (first(:content (nth source 3)))
+                    :procesados  (first(:content (nth source 4)))
+                    :fallecidos  (first(:content (nth source 5)))
+                    :timestamp (timestamp)
                       }]
      resultados)
 
