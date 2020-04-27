@@ -262,8 +262,6 @@
   "Not a surprise. EdoMex reports with a PNG http://148.215.3.96:8283/imgcovid/Datos-actualizados.png
   There is a table aggregated with only two variables"
   []
-
-
   (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:tr :td ])
         resultados {:clave-entidad "15"
                     :estado "Estado de México"
@@ -271,12 +269,26 @@
                     :fallecidos  (first (:content (nth source 377)))
                              }]
     resultados)
-  
+  )
+
+
+(defn michoacan
+  "A funny increasing counter in the page."
+  []
+  (let [source (html/html-resource(fetch "https://michoacancoronavirus.com/"))
+        resultados {:clave-entidad "16"
+                    :estado "Michoacán"
+                    :confirmados (:data-to (:attrs(nth (html/select source [:.numeros]) 0)))
+                    :sospechosos (:data-to (:attrs(nth (html/select source [:.numeros]) 1)))
+                    :negativos   (:data-to (:attrs(nth (html/select source [:.numeros]) 2)))
+                    :fallecidos  (:data-to (:attrs(nth (html/select source [:.numeros]) 3)))
+                    :recuperados (:data-to (:attrs(nth (html/select source [:.numeros]) 4)))
+                    }]
+   resultados )
   )
 
 
 
-  
 (defn write-current-data
   "Write to a file EDN"
   []
