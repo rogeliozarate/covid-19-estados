@@ -303,6 +303,22 @@
 
   )
 
+(defn nayarit
+  "All data in a row."
+  []
+  (let [source (html/select (html/html-resource(fetch "https://covid19.nayarit.gob.mx/package/indexFone.php"))[:.col-sm-3 :h2])
+        resultados {:clave-entidad "18"
+                    :entidad "Nayarit"
+                    :confirmados   (clojure.string/trim(first(:content(nth source 0))))
+                    :activos       (clojure.string/trim(first(:content(nth source 1))))
+                    :recuperados   (clojure.string/trim(first(:content(nth source 2))))
+                    :fallecidos    (clojure.string/trim(first(:content(nth source 3))))
+                    }
+
+        ]
+    resultados)
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
