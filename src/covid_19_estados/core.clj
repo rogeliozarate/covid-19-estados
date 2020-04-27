@@ -349,6 +349,21 @@
 
   )
 
+(defn puebla
+  "A PNG with the info. They don't work on weekends."
+  []
+  (let [ resultados {:clave-entidad "21"
+                      :entidad "Puebla"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
