@@ -395,7 +395,8 @@
      resultados)
 
   )
-(html/html-resource(fetch "https://salud.qroo.gob.mx/portal/coronavirus/coronavirus.php"))
+
+
 
 (defn write-current-data
   "Write to a file EDN"
