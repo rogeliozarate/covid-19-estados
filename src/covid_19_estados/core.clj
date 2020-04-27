@@ -334,6 +334,21 @@
 
   )
 
+(defn oaxaca
+  "Another PDF."
+  []
+  (let [ resultados {:clave-entidad "20"
+                      :entidad "Oaxaca"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
