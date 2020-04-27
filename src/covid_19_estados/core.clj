@@ -364,6 +364,23 @@
 
   )
 
+(defn queretaro
+  "They have nice graphics. On image files."
+  []
+  (let [ resultados {:clave-entidad "22"
+                      :entidad "Queretaro"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
+
+
 (defn write-current-data
   "Write to a file EDN"
   []
