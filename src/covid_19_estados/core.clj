@@ -319,6 +319,21 @@
     resultados)
   )
 
+(defn nuevo-leon
+  "Another PDF."
+  []
+  (let [ resultados {:clave-entidad "19"
+                      :entidad "Nuevo León"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
