@@ -288,6 +288,20 @@
   )
 
 
+(defn morelos
+  "A PDF sent via Whatsapp to the web programmer."
+  []
+  (let [ resultados {:clave-entidad "17"
+                      :entidad "Morelos"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
 
 (defn write-current-data
   "Write to a file EDN"
