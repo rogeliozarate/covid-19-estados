@@ -379,7 +379,23 @@
 
   )
 
+(defn quintana-roo
+  ""
+  []
+  (let [source (html/html-resource (fetch "https://salud.qroo.gob.mx/portal/coronavirus/coronavirus.php"))
+        resultados {:clave-entidad "23"
+                    :entidad "Quintana Roo"
+                    :negativos     (clojure.string/trim(first(:content (nth (html/select source [:.numero.border.border2]) 0))))
+                    :sospechosos   (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 1))))
+                    :positivos     (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 2))))
+                    :recuperados   (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 3))))
+                    :fallecidos    (first (:content (nth (html/select source [:table :tr :td]) 4)))
+                    :timestamp (timestamp)
+                      }]
+     resultados)
 
+  )
+(html/html-resource(fetch "https://salud.qroo.gob.mx/portal/coronavirus/coronavirus.php"))
 
 (defn write-current-data
   "Write to a file EDN"
