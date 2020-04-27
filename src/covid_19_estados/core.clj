@@ -224,7 +224,7 @@
   "Hidalgo has a complete json to retrieve via a post"
   []
   (let [data (first(:results(:success(json/parse-string(:body(post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})) true))))
-        resultados{:clave-entidad: "13"
+        resultados{:clave-entidad  "13"
                    :estado         "Hidalgo"
                    :estudiados     (:casos_estudiados     data)
                    :negativos      (:casos_negativos      data)
@@ -256,6 +256,26 @@
     resultados)
   
   )
+
+
+(defn edomex
+  "Not a surprise. EdoMex reports with a PNG http://148.215.3.96:8283/imgcovid/Datos-actualizados.png
+  There is a table aggregated with only two variables"
+  []
+
+
+  (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:tr :td ])
+        resultados {:clave-entidad "15"
+                    :estado "Estado de México"
+                    :confirmados (first (:content (nth source 376)))
+                    :fallecidos  (first (:content (nth source 377)))
+                             }]
+    resultados)
+  
+  )
+
+
+
   
 (defn write-current-data
   "Write to a file EDN"
