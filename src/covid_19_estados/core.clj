@@ -396,7 +396,21 @@
 
   )
 
-
+(defn sonora
+  ""
+  []
+  (let [source (html/select (html/html-resource (fetch "https://www.sonora.gob.mx/coronavirus/inicio.html"))[:.sppb-animated-number])
+        resultados {:clave-entidad "26"
+                    :estado "Sonora"
+                    :confirmados        (first(:data-digit(nth source 0)))
+                    :activos            (first(:data-digit(nth source 1)))
+                    :recuperados        (first(:data-digit(nth source 2)))
+                    :fallecidos         (first(:data-digit(nth source 3)))
+                    :pruebas-realizadas (first(:data-digit(nth source 4)))
+                    :descartados        (first(:data-digit(nth source 5)))}
+        ]
+    resultados)
+  )
 
 (defn write-current-data
   "Write to a file EDN"
