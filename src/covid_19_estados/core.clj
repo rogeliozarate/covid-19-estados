@@ -430,6 +430,23 @@
 
   )
 
+(defn veracruz
+  "I will comeback to this. Renders negativos in server but other data in client JS."
+  []
+  (let [source (html/html-resource(fetch "http://coronavirus.veracruz.gob.mx/mapa/"))
+        resultados{:clave-entidad "30"
+                   :estado      "Veracruz"
+                   :positivos    ""
+                   :negativos    (clojure.string/trim(first(:content(nth(:content(first(html/select source [:.info-negativos])))1))))
+
+                   :sospechosos  ""
+                   :recuperados  ""
+                   :fallecidos   ""
+                   }
+        ]
+    resultados)
+
+  )
 
 (defn write-current-data
   "Write to a file EDN"
