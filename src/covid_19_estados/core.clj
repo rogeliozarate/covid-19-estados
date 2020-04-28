@@ -462,6 +462,21 @@
 
   )
 
+(defn zacatecas
+  "A PNG with the info."
+  []
+  (let [ resultados {:clave-entidad "32"
+                      :entidad "Zacatecas"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
