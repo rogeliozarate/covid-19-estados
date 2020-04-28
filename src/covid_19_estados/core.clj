@@ -413,6 +413,24 @@
   )
 
 
+(defn tamaulipas
+  ""
+  []
+  (let [source (html/select(html/html-resource(fetch "http://coronavirus.tamaulipas.gob.mx/"))[:.num-casos])
+        resultados{:clave-entidad "28"
+                   :estado      "Tamaulipas"
+                   :positivos    (first(:content(nth source 0)))
+                   :negativos    (first(:content(nth source 1)))
+                   :sospechosos  (first(:content(nth source 2)))
+                   :recuperados  (first(:content(nth source 3)))
+                   :fallecidos   (first(:content(nth source 4)))
+                   }
+        ]
+    resultados)
+
+  )
+
+
 (defn write-current-data
   "Write to a file EDN"
   []
