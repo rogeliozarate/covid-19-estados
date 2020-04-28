@@ -447,6 +447,21 @@
 
   )
 
+(defn yucatan
+  "A PNG with the info"
+  []
+  (let [ resultados {:clave-entidad "31"
+                      :entidad "Yucatan"
+                      :sospechosos "ND"
+                      :confirmados "ND"
+                      :recuperados "ND"
+                      :fallecidos  "ND"
+                      :timestamp (timestamp)
+                      }]
+     resultados)
+
+  )
+
 (defn write-current-data
   "Write to a file EDN"
   []
