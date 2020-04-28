@@ -396,6 +396,21 @@
 
   )
 
+(defn sonora
+  ""
+  []
+  (let [source (html/select(html/html-resource(java.io.StringReader.(:body(fetch-clj "https://www.sonora.gob.mx/coronavirus/inicio.html" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"))))[:.sppb-animated-number])
+        resultados {:clave-entidad "26"
+                    :estado "Sonora"
+                    :confirmados        (:data-digit(:attrs (nth source 0)))
+                    :activos            (:data-digit(:attrs (nth source 1)))
+                    :recuperados        (:data-digit(:attrs (nth source 2)))
+                    :fallecidos         (:data-digit(:attrs (nth source 3)))
+                    :pruebas-realizadas (:data-digit(:attrs (nth source 4)))
+                    :descartados        (:data-digit(:attrs (nth source 5)))}
+        ]
+    resultados)
+  )
 
 
 (defn write-current-data
