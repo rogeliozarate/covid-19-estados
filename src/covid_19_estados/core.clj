@@ -436,12 +436,11 @@
   (let [source (html/html-resource(fetch "http://coronavirus.veracruz.gob.mx/mapa/"))
         resultados{:clave-entidad "30"
                    :estado      "Veracruz"
-                   :positivos    ""
+                   :positivos    "ND"
                    :negativos    (clojure.string/trim(first(:content(nth(:content(first(html/select source [:.info-negativos])))1))))
-
-                   :sospechosos  ""
-                   :recuperados  ""
-                   :fallecidos   ""
+                   :sospechosos  "ND"
+                   :recuperados  "ND"
+                   :fallecidos   "ND"
                    }
         ]
     resultados)
