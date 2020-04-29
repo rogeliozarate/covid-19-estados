@@ -57,9 +57,32 @@
 
 
 (defn baja-california
-  "I will comeback here. Something is funny with the webpage"
+  "Not sure if this is more easy to read."
   []
-  nil
+  (let [source (html/select
+                (html/html-resource
+                 (java.io.StringReader.
+                  (apply str
+                         (take 925
+                               (clojure.string/split-lines
+                                (:body
+                                 (fetch-clj "http://www.bajacalifornia.gob.mx/coronavirus" {})
+                                 )
+                                )
+                               )
+                         )
+                  )
+                 )[:.divSemaforo :h2])
+        
+        resultados {:clave-entidad "2"
+                    :estado "Baja California"
+                    :negativos   (first(:content (nth source 0)))
+                    :sospechosos (first(:content (nth source 1)))
+                    :confirmados (first(:content (nth source 2)))
+                    :fallecidos  (first(:content (nth source 3)))
+                    }
+        ]
+    resultados)
 )
 
 (defn baja-california-sur
