@@ -500,8 +500,9 @@
 
   )
 
+
 (defn write-current-data
   "Write to a file EDN"
   []
-  (spit "data/reporte-estados.edn" (conj {:date (timestamp) :data {:1 (aguascalientes)  :2 (baja-california-sur)}}) :append true)
+  (spit "data/reporte-estados.edn" (conj {:date (timestamp) :data {:1 (aguascalientes)  :2 (baja-california-sur) }}) :append true)
   )
