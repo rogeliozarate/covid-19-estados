@@ -132,15 +132,16 @@
   (defn colima    
     "This is Colima. Some tweaking required"
   []
-    (let [source  (html/select(html/html-resource(java.io.StringReader.(:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))[:.pb-1])
+    (let [source  (html/html-resource(java.io.StringReader.(:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))
           resultados {:clave-entidad "6"
                       :entidad "Colima"
-                      :negativos   (clojure.string/trim (first(:content (nth source 0))))
-                      :sospechosos (clojure.string/trim (first(:content (nth source 1))))
-                      :confirmados (clojure.string/trim (first(:content (nth source 2))))
-                      :recuperados (clojure.string/trim (first(:content (nth source 3))))
-                      :fallecidos  (clojure.string/trim (first(:content (nth source 4))))
-                      :timestamp (timestamp)
+                      :negativos   (clojure.string/trim (first(:content (nth (html/select source [:.pb-1]) 0))))
+                      :sospechosos (clojure.string/trim (first(:content (nth (html/select source [:.pb-1]) 1))))
+                      :confirmados (clojure.string/trim (first(:content (nth (html/select source [:.pb-1]) 2))))
+                      :activos     (clojure.string/trim (first (:content (first(html/select source [:.activos])))))
+                      :recuperados (clojure.string/trim (first (:content (first(html/select source [:.recuperados])))))
+                      :fallecidos  (clojure.string/trim (first (:content (first(html/select source [:.defunciones])))))
+                      :timestamp   (timestamp)
                       }]
      resultados)
 
