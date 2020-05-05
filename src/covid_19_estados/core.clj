@@ -182,7 +182,7 @@
 
 
 (defn ciudad-de-mexico
-  ""
+  "There is no case. They publish based on Federal data, one day later."
   []
   (let [ resultados {:clave-entidad "9"
                       :entidad "Ciudad de México"
