@@ -289,11 +289,11 @@
   "Not a surprise. EdoMex reports with a PNG http://148.215.3.96:8283/imgcovid/Datos-actualizados.png
   There is a table aggregated with only two variables"
   []
-  (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:tr :td ])
+  (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:.celdacentrada ])
         resultados {:clave-entidad "15"
                     :estado "Estado de México"
-                    :confirmados (first (:content (nth source 376)))
-                    :fallecidos  (first (:content (nth source 377)))
+                    :confirmados (first (:content (nth source 501)))
+                    :fallecidos  (first (:content (nth source 502)))
                              }]
     resultados)
   )
