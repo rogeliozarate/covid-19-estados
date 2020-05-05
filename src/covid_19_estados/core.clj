@@ -197,15 +197,17 @@
   )
 
 (defn durango
-  "Seems that Durango feels ok reporting via Tweeter. "
+  "Now they are reporting via webpage."
   []
-  (let [ resultados {:clave-entidad "10"
-                      :entidad "Durango"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
+  (let [source (html/select(html/html-resource(fetch "http://covid.durango.gob.mx/"))[:.count.wow :span])
+        resultados {:clave-entidad   "10"
+                    :entidad         "Durango"
+                    :negativos       (first(:content(nth source 0)))
+                    :sospechosos     (first(:content(nth source 2)))
+                    :confirmados     (first(:content(nth source 4)))
+                    :recuperados "ND"
+                    :fallecidos  "ND"
+                    :timestamp (timestamp)
                       }]
      resultados)
 
