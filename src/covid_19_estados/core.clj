@@ -22,7 +22,7 @@
 
 (defn fetch-clj
   "An alternative fetch function to pass a User Agent string to the webserver."
-  [url user-agent insecure-tf]
+  [url user-agent & insecure-tf]
   (client/get url {:insecure insecure-tf :headers {"User-Agent" user-agent}})
   )
 
