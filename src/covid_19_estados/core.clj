@@ -22,8 +22,8 @@
 
 (defn fetch-clj
   "An alternative fetch function to pass a User Agent string to the webserver."
-  [url user-agent]
-  (client/get url {:headers {"User-Agent" user-agent}})
+  [url user-agent insecure-tf]
+  (client/get url {:insecure insecure-tf :headers {"User-Agent" user-agent}})
   )
 
 (defn post-clj
@@ -364,13 +364,16 @@
 (defn oaxaca
   "Another PDF."
   []
-  (let [ resultados {:clave-entidad "20"
-                      :entidad "Oaxaca"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
+  (let [source (html/select(html/html-resource(java.io.StringReader.(:body (fetch-clj "https://coronavirus.oaxaca.gob.mx/" " " true))))[:p.has-text-centered])
+        resultados {:clave-entidad "20"
+                    :entidad "Oaxaca"
+                    :notificados (second(:content (nth source 0)))
+                    :negativos   (second(:content (nth source 1)))
+                    :sospechosos (second(:content (nth source 2)))
+                    :confirmados (second(:content (nth source 3)))
+                    :recuperados (second(:content (nth source 4)))
+                    :fallecidos  (second(:content (nth source 5)))
+                    :timestamp (timestamp)
                       }]
      resultados)
 
