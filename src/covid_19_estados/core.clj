@@ -40,15 +40,15 @@
 
 
 (defn aguascalientes
-  "Aguascalientes have a well formed webpage with the data inside spans with id."
+  "Fetch data from Aguascalientes. Span confirmados is used twice."
   []
   (let [source (html/html-resource(fetch "https://www.aguascalientes.gob.mx/coronavirus/"))
         resultados {:clave-entidad "1"
                     :entidad "Aguascalientes"
-                    :descartados (first(:content(first(html/select source [:#C-descartados]))))
-                    :sospechosos (first(:content(first(html/select source [:#C-sospechosos]))))
-                    :confirmados (first(:content(first(html/select source [:#C-confirmados]))))
-                    :fallecidos  (first(:content(last(html/select  source [:#C-descartados]))))
+                    :descartados (first(:content(first  (html/select source [:#C-descartados]))))
+                    :sospechosos (first(:content(first  (html/select source [:#C-sospechosos]))))
+                    :confirmados (first(:content(first  (html/select source [:#C-confirmados]))))
+                    :fallecidos  (first(:content(second (html/select source [:#C-confirmados]))))
                     :timestamp   (timestamp)
                     }        
         ]
