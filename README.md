@@ -29,7 +29,7 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   - negativos
   - fallecidos
   Uso positivos como confirmados
-- [-] Chiapas - Servidor reporta error
+- Chiapas
 - [ ] Chihuahua - Reporta datos en imagen
 - [ ] CDMX - Reporta datos federales
 - [x] Durango

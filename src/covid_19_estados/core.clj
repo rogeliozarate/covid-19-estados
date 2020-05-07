@@ -132,7 +132,8 @@
                     :negativos   (first(:content (nth source 2)))
                     :recuperados (first(:content (nth source 3)))
                     :procesados  (first(:content (nth source 4)))
-                    :fallecidos  (first(:content (nth source 5)))
+                    :pendientes  (first(:content (nth source 5)))
+                    :fallecidos  (first(:content (nth source 6)))
                     :timestamp (timestamp)
                       }]
      resultados)
