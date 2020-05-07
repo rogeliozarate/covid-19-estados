@@ -32,7 +32,7 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - [x] Sonora
 - [ ] Tabasco TODO
 - [x] Tamaulipas
-- [ ] Tlaxcala - No encuentro datos
+- [ ] Tlaxcala - TODO
 - [-] Veracruz - Un dato TODO
 - [ ] Yucatan - No encuentro datos. Imagen
 - [ ] Zacatecas - Reporta con imagen
