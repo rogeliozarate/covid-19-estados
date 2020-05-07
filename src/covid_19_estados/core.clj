@@ -166,7 +166,6 @@
                     :negativos       (first(:content(nth source 0)))
                     :sospechosos     (first(:content(nth source 2)))
                     :confirmados     (first(:content(nth source 4)))
-                    :recuperados "ND"
                     :fallecidos  "ND"
                     :timestamp (timestamp)
                       }]

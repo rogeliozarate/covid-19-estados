@@ -30,10 +30,9 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   - fallecidos
   Uso positivos como confirmados
 - Chiapas
-- [ ] Chihuahua - Reporta datos en imagen
-- [ ] CDMX - Reporta datos federales
-- [x] Durango
-- [x] Guanajuato
+- Durango
+  No reporta fallecidos en web pero si en imagen.
+- Guanajuato
 - [ ] Guerrero - No reporta datos
 - [x] Hidalgo
 - [x] Jalisco - Reporta datos federales más UdeG y particulares
@@ -61,7 +60,8 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   
 - [ ] Campeche - No hay datos visibles
 - [ ] Coahuila - Usan google Data Studio
-
+- [ ] Chihuahua - Reporta datos en imagen
+- [ ] CDMX - Reporta datos federales
 # Qué es y qué no es covid-19-estados
 
 ToDo: Extender este punto
