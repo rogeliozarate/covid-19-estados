@@ -150,7 +150,7 @@
                       :sospechosos "ND"
                       :confirmados "ND"
                       :recuperados "ND"
-                     :fallecidos  "ND"r
+                     :fallecidos  "ND"
                       :timestamp (timestamp)
                       }]
      resultados)
@@ -201,6 +201,7 @@
                    :estado         "Hidalgo"
                    :estudiados     (:casos_estudiados     data)
                    :negativos      (:casos_negativos      data)
+                   :positivos      (:casos_positivos      data)
                    :sospechosos    (:casos_sospechosos    data)
                    :fallecidos     (:casos_defunciones    data)
                    :hospitalizados (:casos_hospitalizados data)

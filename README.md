@@ -33,8 +33,7 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - Durango
   No reporta fallecidos en web pero si en imagen.
 - Guanajuato
-
-- [x] Hidalgo
+- Hidalgo
 - [x] Jalisco - Reporta datos federales más UdeG y particulares
 - [-] Estado de México - Reporta datos en imagen. Solo 2 datos
 - [x] Michoacán
