@@ -21,7 +21,14 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   - fallecidos
   - recuperados
   No reporta negativos. Uso activos como confirmados.
-- [x] Colima
+- Colima
+  - positivos 
+  - sospechosos
+  - recuperados
+  - activos
+  - negativos
+  - fallecidos
+  Uso positivos como confirmados
 - [-] Chiapas - Servidor reporta error
 - [ ] Chihuahua - Reporta datos en imagen
 - [ ] CDMX - Reporta datos federales

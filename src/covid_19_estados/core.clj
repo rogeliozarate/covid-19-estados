@@ -103,24 +103,8 @@
     resultados)
   )
 
-
-(defn coahuila
-  "Google data studio."
-  []
-   (let [ resultados {:clave-entidad "5"
-                    :entidad "Coahuila"
-                    :sospechosos "ND"
-                    :confirmados "ND"
-                    :recuperados "ND"
-                    :fallecidos  "ND"
-                    :timestamp (timestamp)
-                      }]
-     resultados)
-
-  )
-
-  (defn colima    
-    "This is Colima. Some tweaking required"
+(defn colima    
+    "Uses positivos as confirmados."
   []
     (let [source  (html/html-resource(java.io.StringReader.(:body(client/get "http://www.col.gob.mx/coronavirus#" {:headers {"User-Agent" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"}}))))
           resultados {:clave-entidad "6"
