@@ -2,13 +2,25 @@
 
 Compara los datos publicados en las páginas web de cada estado con los publicados por la Federación.
 
-# Notas sobre los estados
+# Notas sobre los estados incluidos
 
-- [x] Aguascalientes
-- [x] Baja California
-- [x] Baja California Sur
-- [ ] Campeche - No hay datos visibles
-- [ ] Coahuila - Usan google Data Studio
+- Aguascalientes
+  - negativos
+  - sospechosos
+  - confirmados
+  - fallecidos
+- Baja California
+  - descartados
+  - sospechosos
+  - confirmados
+  - fallecidos
+  El dato etiquetado como descartados lo tomo como negativos.
+- Baja California Sur
+  - sospechosos
+  - activos
+  - fallecidos
+  - recuperados
+  No reporta negativos. Uso activos como confirmados.
 - [x] Colima
 - [-] Chiapas - Servidor reporta error
 - [ ] Chihuahua - Reporta datos en imagen
@@ -37,6 +49,11 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - [ ] Yucatan - No encuentro datos. Imagen
 - [ ] Zacatecas - Reporta con imagen
 
+# Estados no incluidos
+
+  
+- [ ] Campeche - No hay datos visibles
+- [ ] Coahuila - Usan google Data Studio
 
 # Qué es y qué no es covid-19-estados
 
