@@ -89,13 +89,14 @@
 (defn baja-california-sur
   "BCS, not bad. Activos=confirmados. No descartados"
   []
-  (let [source (html/html-resource(fetch "https://www.aguascalientes.gob.mx/coronavirus/"))
+  (let [source (html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))
         resultados {:clave-entidad "3"
                     :entidad "Baja California Sur"
-                    :sospechosos (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 0)))
-                    :confirmados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 1)))
-                    :recuperados (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 3)))
-                    :fallecidos  (first(:content(nth (html/select(html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))[:.elementor-counter-number]) 2)))
+                    :negativos   "ND"
+                    :sospechosos (first(:content(nth (html/select source [:.elementor-counter-number]) 0)))
+                    :confirmados (first(:content(nth (html/select source [:.elementor-counter-number]) 1)))
+                    :recuperados (first(:content(nth (html/select source [:.elementor-counter-number]) 3)))
+                    :fallecidos  (first(:content(nth (html/select source [:.elementor-counter-number]) 2)))
                     :timestamp (timestamp)
                     }
         ]
@@ -425,7 +426,7 @@
                       }]
      resultados)
 
-  )
+  )
 
 (defn sonora
   ""
