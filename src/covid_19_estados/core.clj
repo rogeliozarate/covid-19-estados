@@ -92,6 +92,7 @@
   (let [source (html/html-resource(fetch "https://coronavirus.bcs.gob.mx"))
         resultados {:clave-entidad "3"
                     :entidad "Baja California Sur"
+                    :negativos   "ND"
                     :sospechosos (first(:content(nth (html/select source [:.elementor-counter-number]) 0)))
                     :confirmados (first(:content(nth (html/select source [:.elementor-counter-number]) 1)))
                     :recuperados (first(:content(nth (html/select source [:.elementor-counter-number]) 3)))
