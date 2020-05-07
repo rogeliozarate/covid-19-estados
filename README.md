@@ -2,6 +2,42 @@
 
 Compara los datos publicados en las páginas web de cada estado con los publicados por la Federación.
 
+# Notas sobre los estados
+
+- [x] Aguascalientes
+- [x] Baja California
+- [x] Baja California Sur
+- [ ] Campeche - No hay datos visibles
+- [ ] Coahuila - Usan google Data Studio
+- [x] Colima
+- [-] Chiapas - Servidor reporta error
+- [ ] Chihuahua - Reporta datos en imagen
+- [ ] CDMX - Reporta datos federales
+- [x] Durango
+- [x] Guanajuato
+- [ ] Guerrero - No reporta datos
+- [x] Hidalgo
+- [x] Jalisco - Reporta datos federales más UdeG y particulares
+- [-] Estado de México - Reporta datos en imagen. Solo 2 datos
+- [x] Michoacán
+- [ ] Morelos - Reportan via PDF
+- [-] Nayarit - Not working today
+- [ ] Nuevo León - PDF
+- [x] Oaxaca
+- [ ] Puebla - Reportan con imagen
+- [ ] Querétaro - Reportan con imagen
+- [x] Quintana Roo
+- [ ] San Luis Potosí - No encuentro datos
+- [ ] Sinaloa - TODO
+- [x] Sonora
+- [ ] Tabasco TODO
+- [x] Tamaulipas
+- [ ] Tlaxcala - No encuentro datos
+- [-] Veracruz - Un dato TODO
+- [ ] Yucatan - No encuentro datos. Imagen
+- [ ] Zacatecas - Reporta con imagen
+
+
 # Qué es y qué no es covid-19-estados
 
 ToDo: Extender este punto
