@@ -15,13 +15,13 @@
 ;  (println "Hello, World!"))
 
 (defn fetch
-  "Fetchs the webpage"
+  "Gets url as unique parameter."
   [url]
   (java.net.URL. url)
   )
 
 (defn fetch-clj
-  "An alternative fetch function to pass a User Agent string to the webserver."
+  "An alternative fetch function to pass a User Agent string to the webserver. Url and user agent as parameteres, insecure true or not as optional"
   [url user-agent & insecure-tf]
   (client/get url {:insecure insecure-tf :headers {"User-Agent" user-agent}})
   )
@@ -57,7 +57,7 @@
 
 
 (defn baja-california
-  "Not sure if this is more easy to read."
+  "Fetch page from url and takes only first 925 lines of text as html-resource."
   []
   (let [source (html/select
                 (html/html-resource
@@ -102,7 +102,7 @@
   )
 
 (defn campeche
-  "No hay datos visibles"
+  "No hay datos visibles."
   []
   (let [ resultados {:clave-entidad "4"
                     :entidad "Campeche"
@@ -116,7 +116,7 @@
   )
 
 (defn coahuila
-  "Google data studio "
+  "Google data studio."
   []
    (let [ resultados {:clave-entidad "5"
                     :entidad "Coahuila"
