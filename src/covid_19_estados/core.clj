@@ -383,7 +383,20 @@
 
   )
 
-
+(defn tabasco
+  "."
+  []
+  (let [source  (html/select (html/html-resource (fetch "https://covid19.saludtab.gob.mx/")) [:.counter])
+        resultados {:clave-entidad "27"
+                    :estado        "Tabasco"
+                    :negativos     (:data-target(:attrs(nth source 0)))
+                    :sospechosos   (:data-target(:attrs(nth source 1)))
+                    :confirmados   (:data-target(:attrs(nth source 2)))
+                    :fallecidos    (:data-target(:attrs(nth source 3)))
+                    }
+        ]
+resultados)
+  )
 
 (defn write-current-data
   "Write to a file EDN"
