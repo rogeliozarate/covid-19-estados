@@ -318,7 +318,7 @@
 (defn quintana-roo
   ""
   []
-  (let [source (html/html-resource (fetch "https://salud.qroo.gob.mx/portal/coronavirus/coronavirus.php"))
+  (let [source (html/html-resource (fetch "https://salud.qroo.gob.mx/portal/coronavirus/cards.php"))
         resultados {:clave-entidad "23"
                     :entidad "Quintana Roo"
                     :negativos     (clojure.string/trim(first(:content (nth (html/select source [:.numero.border.border2]) 0))))
