@@ -47,8 +47,6 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - Tamaulipas
 - [ ] Tlaxcala - TODO
 - [-] Veracruz - Un dato TODO
-
-
 - [ ] Sinaloa - TODO
 - [ ] Tabasco TODO
 
