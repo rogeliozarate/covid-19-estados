@@ -297,7 +297,7 @@
 
  
 (defn oaxaca
-  "Another PDF."
+  "."
   []
   (let [source (html/select(html/html-resource(java.io.StringReader.(:body (fetch-clj "https://coronavirus.oaxaca.gob.mx/" " " true))))[:p.has-text-centered])
         resultados {:clave-entidad "20"
@@ -314,35 +314,6 @@
 
   )
 
-(defn puebla
-  "A PNG with the info. They don't work on weekends."
-  []
-  (let [ resultados {:clave-entidad "21"
-                      :entidad "Puebla"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
-                      }]
-     resultados)
-
-  )
-
-(defn queretaro
-  "They have nice graphics. On image files."
-  []
-  (let [ resultados {:clave-entidad "22"
-                      :entidad "Queretaro"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
-                      }]
-     resultados)
-
-  )
 
 (defn quintana-roo
   ""

@@ -42,8 +42,7 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - Michoacán
 - Nayarit
 - Oaxaca
-- [ ] Puebla - Reportan con imagen
-- [ ] Querétaro - Reportan con imagen
+
 - [x] Quintana Roo
 - [ ] San Luis Potosí - No encuentro datos
 - [ ] Sinaloa - TODO
@@ -72,7 +71,10 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   Reportan via PDF
 - Nuevo León
   PDF
-
+- Puebla
+  Reportan con imagen
+- Querétaro
+  Reportan con imagen
 
 
 # Qué es y qué no es covid-19-estados
