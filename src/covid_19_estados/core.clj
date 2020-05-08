@@ -218,7 +218,7 @@
   "This state reports federal plus UG plus particular data. I will take the total."
   []
 
-
+  
   (let [source (html/html-resource(fetch "https://coronavirus.jalisco.gob.mx"))
         resultados {:clave-entidad "14"
                     :estado "Jalisco"
@@ -239,6 +239,8 @@
   (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:.celdacentrada ])
         resultados {:clave-entidad "15"
                     :estado "Estado de México"
+                    :negativos "ND"
+                    :sospechosos "ND"
                     :confirmados (first (:content (nth source 501)))
                     :fallecidos  (first (:content (nth source 502)))
                              }]
@@ -293,21 +295,7 @@
     resultados)
   )
 
-(defn nuevo-leon
-  "Another PDF."
-  []
-  (let [ resultados {:clave-entidad "19"
-                      :entidad "Nuevo León"
-                      :sospechosos "ND"
-                      :confirmados "ND"
-                      :recuperados "ND"
-                      :fallecidos  "ND"
-                      :timestamp (timestamp)
-                      }]
-     resultados)
-
-  )
-
+ 
 (defn oaxaca
   "Another PDF."
   []

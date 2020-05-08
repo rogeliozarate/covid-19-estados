@@ -34,13 +34,14 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   No reporta fallecidos en web pero si en imagen.
 - Guanajuato
 - Hidalgo
-- [x] Jalisco - Reporta datos federales más UdeG y particulares
-- [-] Estado de México - Reporta datos en imagen. Solo 2 datos
-- [x] Michoacán
-- [ ] Morelos - Reportan via PDF
-- [-] Nayarit - Not working today
-- [ ] Nuevo León - PDF
-- [x] Oaxaca
+- Jalisco
+  Reporta 3 conteos: Federal, UdeG y particulares.
+  Uso la suma de los 3.
+- Estado de México
+  Reporta datos en imagen. Solo 2 datos
+- Michoacán
+- Nayarit
+- Oaxaca
 - [ ] Puebla - Reportan con imagen
 - [ ] Querétaro - Reportan con imagen
 - [x] Quintana Roo
@@ -67,8 +68,10 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   Reporta datos federales
 - Guerrero
   No reporta datos
-
-
+- Morelos
+  Reportan via PDF
+- Nuevo León
+  PDF
 
 
 
