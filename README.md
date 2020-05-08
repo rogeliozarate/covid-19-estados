@@ -45,10 +45,15 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - Quintana Roo
 - Sonora
 - Tamaulipas
+- Tabasco
+  - negativos
+  - sospechosos
+  - confirmados
+  - fallecidos
 - [ ] Tlaxcala - TODO
 - [-] Veracruz - Un dato TODO
 - [ ] Sinaloa - TODO
-- [ ] Tabasco TODO
+
 
 # Estados no incluidos
 
