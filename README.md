@@ -42,17 +42,15 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
 - Michoacán
 - Nayarit
 - Oaxaca
-
-- [x] Quintana Roo
-- [ ] San Luis Potosí - No encuentro datos
-- [ ] Sinaloa - TODO
-- [x] Sonora
-- [ ] Tabasco TODO
-- [x] Tamaulipas
+- Quintana Roo
+- Sonora
+- Tamaulipas
 - [ ] Tlaxcala - TODO
 - [-] Veracruz - Un dato TODO
-- [ ] Yucatan - No encuentro datos. Imagen
-- [ ] Zacatecas - Reporta con imagen
+
+
+- [ ] Sinaloa - TODO
+- [ ] Tabasco TODO
 
 # Estados no incluidos
 
@@ -75,7 +73,9 @@ Compara los datos publicados en las páginas web de cada estado con los publicad
   Reportan con imagen
 - Querétaro
   Reportan con imagen
-
+- [ ] San Luis Potosí - No encuentro datos
+- [ ] Yucatan - No encuentro datos. Imagen
+- [ ] Zacatecas - Reporta con imagen
 
 # Qué es y qué no es covid-19-estados
 
