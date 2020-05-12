@@ -427,13 +427,13 @@ resultados)
     )
   )    
 
-(defn write-current-state
+(defn write-current-state-edn
   "Writes current state to file"
   []
   (spit "data/current-state.edn" (current-state))
   )
 
-(defn read-current-state
+(defn read-current-state-edn
   "Reads current state from file"
   []
   (edn/read-string(slurp "data/current-state.edn"))
