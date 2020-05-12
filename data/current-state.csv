@@ -1,0 +1,19 @@
+Clave-Entidad,Entidad,Negativos,Sospechosos,Confirmados,Fallecidos
+1,Aguascalientes,3205,399,482,14
+2,Baja California,1859,940,2524,433
+3,Baja California Sur,ND,53,235,25
+6,Colima,260,17,46,8
+7,Chiapas,802,"2,019",420,30
+10,Durango,966,103,113,ND
+11,Guanajuato,6623,535,688,65
+13,Hidalgo,790,74,567,90
+14,Jalisco,"9,684",661,878,55
+15,Estado de México,ND,ND,"6,155",343
+16,Michoacán,1926,496,632,75
+18,Nayarit,ND,ND,243,23
+20,Oaxaca,721,116,258,47
+23,Quintana Roo,1150,163,1144,211
+26,Sonora,1367,2009,642,53
+28,Tamaulipas,2891,32,857,50
+27,Tabasco,1801,401,1758,232
+30,Veracruz,2195,ND,ND,ND

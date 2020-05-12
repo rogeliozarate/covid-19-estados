@@ -430,7 +430,7 @@ resultados)
 (defn generate-current-state-csv
   "Generates the current snapshot in vectors"
   []
-  (let [snapshot
+  (let [snapshot  (cons ["Clave-Entidad" "Entidad" "Negativos" "Sospechosos" "Confirmados" "Fallecidos"]
                        (map extract-indicators [aguascalientes
                                           baja-california
                                           baja-california-sur
@@ -450,7 +450,7 @@ resultados)
                                           tabasco
                                           veracruz
                                                 ]
-                            )
+                            ))
                        
                  ]
        snapshot)
