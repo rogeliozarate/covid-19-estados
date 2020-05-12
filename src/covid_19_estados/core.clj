@@ -170,7 +170,7 @@
   (let [source (:casos (json/parse-string(slurp "https://coronavirus.guanajuato.gob.mx/infectados.json") true))
         resultados {:clave-entidad "11"
                     :entidad     "Guanajuato"
-                    :descartados (:descartados    source)
+                    :negativos   (:descartados    source)
                     :sospechosos (:investigacion  source)
                     :confirmados (:confirmados    source)
                     :comunitaria (:comunitaria    source)
@@ -187,10 +187,10 @@
   []
   (let [data (first(:results(:success(json/parse-string(:body(post-clj "http://148.223.224.76:9058/get/registers/end" {:headers {}})) true))))
         resultados{:clave-entidad  "13"
-                   :estado         "Hidalgo"
+                   :entidad         "Hidalgo"
                    :estudiados     (:casos_estudiados     data)
                    :negativos      (:casos_negativos      data)
-                   :positivos      (:casos_positivos      data)
+                   :confirmados    (:casos_positivos      data)
                    :sospechosos    (:casos_sospechosos    data)
                    :fallecidos     (:casos_defunciones    data)
                    :hospitalizados (:casos_hospitalizados data)
@@ -210,10 +210,10 @@
   
   (let [source (html/html-resource(fetch "https://coronavirus.jalisco.gob.mx"))
         resultados {:clave-entidad "14"
-                    :estado "Jalisco"
+                    :entidad       "Jalisco"
                     :confirmados (first(:content(first(html/select source[:.bg-rojo-t.c-rojo :h5 :b]))))
                     :sospechosos (first(:content(first(html/select source[:.bg-naranja-t.c-naranja :h5 :b]))))
-                    :descartados (first(:content(first(html/select source[:.bg-azul-t.c-azul :h5 :b]))))
+                    :negativos (first(:content(first(html/select source[:.bg-azul-t.c-azul :h5 :b]))))
                     :fallecidos  (first(:content(first(html/select source[:.bg-gris-t.c-gris :h5 :b]))))
                              }]
     resultados)
@@ -227,7 +227,7 @@
   []
   (let [source (html/select(html/html-resource(fetch "https://edomex.gob.mx/covid-19"))[:.celdacentrada ])
         resultados {:clave-entidad "15"
-                    :estado "Estado de México"
+                    :entidad "Estado de México"
                     :negativos "ND"
                     :sospechosos "ND"
                     :confirmados (first (:content (nth source 501)))
@@ -242,7 +242,7 @@
   []
   (let [source (html/html-resource(fetch "https://michoacancoronavirus.com/"))
         resultados {:clave-entidad "16"
-                    :estado "Michoacán"
+                    :entidad       "Michoacán"
                     :confirmados (:data-to (:attrs(nth (html/select source [:.numeros]) 0)))
                     :sospechosos (:data-to (:attrs(nth (html/select source [:.numeros]) 1)))
                     :negativos   (:data-to (:attrs(nth (html/select source [:.numeros]) 2)))
@@ -273,11 +273,13 @@
   []
   (let [source (html/select (html/html-resource(fetch "https://covid19.nayarit.gob.mx/package/indexFone.php"))[:.col-sm-3 :h2])
         resultados {:clave-entidad "18"
-                    :entidad "Nayarit"
+                    :entidad       "Nayarit"
                     :confirmados   (clojure.string/trim(first(:content(nth source 0))))
                     :activos       (clojure.string/trim(first(:content(nth source 1))))
                     :recuperados   (clojure.string/trim(first(:content(nth source 2))))
                     :fallecidos    (clojure.string/trim(first(:content(nth source 3))))
+                    :negativos     "ND"
+                    :sospechosos   "ND"
                     }
 
         ]
@@ -312,27 +314,27 @@
                     :entidad "Quintana Roo"
                     :negativos     (clojure.string/trim(first(:content (nth (html/select source [:.numero.border.border2]) 0))))
                     :sospechosos   (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 1))))
-                    :positivos     (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 2))))
+                    :confirmados   (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 2))))
                     :recuperados   (clojure.string/trim(first(:content (nth (html/select source [:.border.numero]) 3))))
                     :fallecidos    (first (:content (nth (html/select source [:table :tr :td]) 4)))
                     :timestamp (timestamp)
                       }]
      resultados)
 
-  )
+  )
 
 (defn sonora
   ""
   []
   (let [source (html/select(html/html-resource(java.io.StringReader.(:body(fetch-clj "https://www.sonora.gob.mx/coronavirus/inicio.html" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:75.0) Gecko/20100101 Firefox/75.0"))))[:.sppb-animated-number])
-        resultados {:clave-entidad "26"
-                    :estado "Sonora"
+        resultados {:clave-entidad      "26"
+                    :entidad            "Sonora"
                     :confirmados        (:data-digit(:attrs (nth source 0)))
                     :activos            (:data-digit(:attrs (nth source 1)))
                     :recuperados        (:data-digit(:attrs (nth source 2)))
                     :fallecidos         (:data-digit(:attrs (nth source 3)))
-                    :pruebas-realizadas (:data-digit(:attrs (nth source 4)))
-                    :descartados        (:data-digit(:attrs (nth source 5)))}
+                    :sospechosos        (:data-digit(:attrs (nth source 4)))
+                    :negativos           (:data-digit(:attrs (nth source 5)))}
         ]
     resultados)
   )
@@ -343,29 +345,12 @@
   []
   (let [source (html/select(html/html-resource(fetch "http://coronavirus.tamaulipas.gob.mx/"))[:.num-casos])
         resultados{:clave-entidad "28"
-                   :estado      "Tamaulipas"
-                   :positivos    (first(:content(nth source 0)))
-                   :negativos    (first(:content(nth source 1)))
-                   :sospechosos  (first(:content(nth source 2)))
-                   :recuperados  (first(:content(nth source 3)))
-                   :fallecidos   (first(:content(nth source 4)))
-                   }
-        ]
-    resultados)
-
-  )
-
-(defn veracruz
-  "I will comeback to this. Renders negativos in server but other data in client JS."
-  []
-  (let [source (html/html-resource(fetch "http://coronavirus.veracruz.gob.mx/mapa/"))
-        resultados{:clave-entidad "30"
-                   :estado      "Veracruz"
-                   :positivos    "ND"
-                   :negativos    (clojure.string/trim(first(:content(nth(:content(first(html/select source [:.info-negativos])))1))))
-                   :sospechosos  "ND"
-                   :recuperados  "ND"
-                   :fallecidos   "ND"
+                   :entidad       "Tamaulipas"
+                   :confirmados   (first(:content(nth source 0)))
+                   :negativos     (first(:content(nth source 1)))
+                   :sospechosos   (first(:content(nth source 2)))
+                   :recuperados   (first(:content(nth source 3)))
+                   :fallecidos    (first(:content(nth source 4)))
                    }
         ]
     resultados)
@@ -377,7 +362,7 @@
   []
   (let [source  (html/select (html/html-resource (fetch "https://covid19.saludtab.gob.mx/")) [:.counter])
         resultados {:clave-entidad "27"
-                    :estado        "Tabasco"
+                    :entidad       "Tabasco"
                     :negativos     (:data-target(:attrs(nth source 0)))
                     :sospechosos   (:data-target(:attrs(nth source 1)))
                     :confirmados   (:data-target(:attrs(nth source 2)))
@@ -386,6 +371,25 @@
         ]
 resultados)
   )
+
+
+(defn veracruz
+  "I will comeback to this. Renders negativos in server but other data in client JS."
+  []
+  (let [source (html/html-resource(fetch "http://coronavirus.veracruz.gob.mx/mapa/"))
+        resultados{:clave-entidad "30"
+                   :entidad       "Veracruz"
+                   :confirmados   "ND"
+                   :negativos    (clojure.string/trim(first(:content(nth(:content(first(html/select source [:.info-negativos])))1))))
+                   :sospechosos  "ND"
+                   :recuperados  "ND"
+                   :fallecidos   "ND"
+                   }
+        ]
+    resultados)
+
+  )
+
 
 (defn current-state
   "Generates the current snapshot."
@@ -407,9 +411,21 @@ resultados)
                                    (sonora)
                                    (tamaulipas)
                                    (tabasco)
+                                   (veracruz)
                                    ]}
 
   )
+
+
+(defn extract-indicators
+  ""
+  [state]
+  (let [source (state)
+        vector [(:clave-entidad source) (:entidad source) (:negativos source) (:sospechosos source) (:confirmados source) (:fallecidos source)]
+        ]
+    vector
+    )
+  )    
 
 (defn write-current-state
   "Writes current state to file"
@@ -421,4 +437,16 @@ resultados)
   "Reads current state from file"
   []
   (edn/read-string(slurp "data/current-state.edn"))
+  )
+
+
+(defn write-current-state-csv
+  "Writes current state as csvs"
+  []
+
+  (with-open [writer (io/writer "data/current-state.csv")]
+  (csv/write-csv writer
+                 [["id" "entidad" "negativos" "sospechosos" "confirmados" "fallecidos"]
+                  ["1" "Aguascalientes" "1" "2" "3" "4"]]))
+
   )
