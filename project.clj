@@ -8,8 +8,9 @@
                  [clj-http "3.10.1"]
                  [enlive "1.1.6"]
                  [clj-time "0.15.2"]
-                 [cheshire "5.10.0"]]
+                 [cheshire "5.10.0"]
+                 [org.clojure/data.csv "1.0.0"]]
   
-   :main ^:skip-aot covid-19-estados.core
+  :main ^:skip-aot covid-19-estados.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})

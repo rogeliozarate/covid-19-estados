@@ -5,7 +5,9 @@
             [clj-time.format :as f]
             [clj-time.local :as l]
             [cheshire.core :refer :all :as json]
-
+            [clojure.data.csv :as csv]
+            [clojure.java.io :as io]
+            [clojure.edn :as edn]
             )
   )
 
@@ -50,10 +52,10 @@
                     :sospechosos (first(:content(first  (html/select source [:#C-sospechosos]))))
                     :confirmados (first(:content(first  (html/select source [:#C-confirmados]))))
                     :fallecidos  (first(:content(second (html/select source [:#C-confirmados]))))
-                    :timestamp   (timestamp)
-                    }        
+                    }
         ]
     resultados)
+        
   )
 
 
@@ -63,17 +65,7 @@
   (let [source (html/select
                 (html/html-resource
                  (java.io.StringReader.
-                  (apply str
-                         (take 925
-                               (clojure.string/split-lines
-                                (:body
-                                 (fetch-clj "http://www.bajacalifornia.gob.mx/coronavirus" {})
-                                 )
-                                )
-                               )
-                         )
-                  )
-                 )[:.divSemaforo :h2])
+                  (apply str(take 925 (clojure.string/split-lines (:body (fetch-clj "http://www.bajacalifornia.gob.mx/coronavirus" {})))))))[:.divSemaforo :h2])
         
         resultados {:clave-entidad "2"
                     :estado "Baja California"
@@ -97,7 +89,6 @@
                     :confirmados (first(:content(nth (html/select source [:.elementor-counter-number]) 1)))
                     :recuperados (first(:content(nth (html/select source [:.elementor-counter-number]) 3)))
                     :fallecidos  (first(:content(nth (html/select source [:.elementor-counter-number]) 2)))
-                    :timestamp (timestamp)
                     }
         ]
     resultados)
@@ -115,7 +106,6 @@
                       :activos     (clojure.string/trim (first (:content (first(html/select source [:.activos])))))
                       :recuperados (clojure.string/trim (first (:content (first(html/select source [:.recuperados])))))
                       :fallecidos  (clojure.string/trim (first (:content (first(html/select source [:.defunciones])))))
-                      :timestamp   (timestamp)
                       }]
      resultados)
 
@@ -134,7 +124,6 @@
                     :procesados  (first(:content (nth source 4)))
                     :pendientes  (first(:content (nth source 5)))
                     :fallecidos  (first(:content (nth source 6)))
-                    :timestamp (timestamp)
                       }]
      resultados)
 
@@ -398,8 +387,38 @@
 resultados)
   )
 
-(defn write-current-data
-  "Write to a file EDN"
+(defn current-state
+  "Generates the current snapshot."
   []
-  (spit "data/reporte-estados.edn" (conj {:date (timestamp) :data {:1 (aguascalientes)  :2 (baja-california-sur) }}) :append true)
+  { :timestamp (timestamp) :datos [(aguascalientes)
+                                   (baja-california)
+                                   (baja-california-sur)
+                                   (colima)
+                                   (chiapas)
+                                   (durango)
+                                   (guanajuato)
+                                   (hidalgo)
+                                   (jalisco)
+                                   (edomex)
+                                   (michoacan)
+                                   (nayarit)
+                                   (oaxaca)
+                                   (quintana-roo)
+                                   (sonora)
+                                   (tamaulipas)
+                                   (tabasco)
+                                   ]}
+
+  )
+
+(defn write-current-state
+  "Writes current state to file"
+  []
+  (spit "data/current-state.edn" (current-state))
+  )
+
+(defn read-current-state
+  "Reads current state from file"
+  []
+  (edn/read-string(slurp "data/current-state.edn"))
   )
