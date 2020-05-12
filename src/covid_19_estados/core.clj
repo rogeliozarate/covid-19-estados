@@ -68,11 +68,11 @@
                   (apply str(take 925 (clojure.string/split-lines (:body (fetch-clj "http://www.bajacalifornia.gob.mx/coronavirus" {})))))))[:.divSemaforo :h2])
         
         resultados {:clave-entidad "2"
-                    :estado "Baja California"
-                    :negativos   (first(:content (nth source 0)))
-                    :sospechosos (first(:content (nth source 1)))
-                    :confirmados (first(:content (nth source 2)))
-                    :fallecidos  (first(:content (nth source 3)))
+                    :entidad       "Baja California"
+                    :negativos     (first(:content (nth source 0)))
+                    :sospechosos   (first(:content (nth source 1)))
+                    :confirmados   (first(:content (nth source 2)))
+                    :fallecidos    (first(:content (nth source 3)))
                     }
         ]
     resultados)
@@ -418,7 +418,7 @@ resultados)
 
 
 (defn extract-indicators
-  ""
+  "Extract the four main indicators from each state."
   [state]
   (let [source (state)
         vector [(:clave-entidad source) (:entidad source) (:negativos source) (:sospechosos source) (:confirmados source) (:fallecidos source)]
@@ -426,6 +426,35 @@ resultados)
     vector
     )
   )    
+
+(defn generate-current-state-csv
+  "Generates the current snapshot in vectors"
+  []
+  (let [snapshot
+                       (map extract-indicators [aguascalientes
+                                          baja-california
+                                          baja-california-sur
+                                          colima
+                                          chiapas
+                                          durango
+                                          guanajuato
+                                          hidalgo
+                                          jalisco
+                                          edomex
+                                          michoacan
+                                          nayarit
+                                          oaxaca
+                                          quintana-roo
+                                          sonora
+                                          tamaulipas
+                                          tabasco
+                                          veracruz
+                                                ]
+                            )
+                       
+                 ]
+       snapshot)
+  )
 
 (defn write-current-state-edn
   "Writes current state to file"
@@ -445,8 +474,9 @@ resultados)
   []
 
   (with-open [writer (io/writer "data/current-state.csv")]
-  (csv/write-csv writer
-                 [["id" "entidad" "negativos" "sospechosos" "confirmados" "fallecidos"]
-                  ["1" "Aguascalientes" "1" "2" "3" "4"]]))
+    (csv/write-csv writer
+                 (generate-current-state-csv) )
+    )
 
   )
+
