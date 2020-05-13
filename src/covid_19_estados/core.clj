@@ -40,6 +40,11 @@
   (f/unparse (f/formatter :date-time) (t/minus (l/local-now)(t/hours 5)))
 )
 
+(defn eliminate-comma
+  "Eliminates commas in a string."
+  [received-string]
+  (clojure.string/replace received-string "," "")
+  )
 
 (defn aguascalientes
   "Fetch data from Aguascalientes. Span confirmados is used twice.
@@ -421,7 +426,7 @@ resultados)
   "Extract the four main indicators from each state."
   [state]
   (let [source (state)
-        vector [(:clave-entidad source) (:entidad source) (:negativos source) (:sospechosos source) (:confirmados source) (:fallecidos source)]
+        vector [(:clave-entidad source) (:entidad source) (eliminate-comma(:negativos source)) (eliminate-comma(:sospechosos source)) (eliminate-comma(:confirmados source)) (eliminate-comma(:fallecidos source))]
         ]
     vector
     )
