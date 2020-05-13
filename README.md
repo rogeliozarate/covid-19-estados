@@ -1,36 +1,116 @@
 # covid-19-estados
 
-FIXME: description
+Compara los datos publicados en las páginas web de cada estado con los publicados por la Federación.
 
-## Installation
+# Notas sobre los estados incluidos
 
-Download from http://example.com/FIXME.
+- Aguascalientes
+  - negativos
+  - sospechosos
+  - confirmados
+  - fallecidos
+- Baja California
+  - descartados
+  - sospechosos
+  - confirmados
+  - fallecidos
+  El dato etiquetado como descartados lo tomo como negativos.
+- Baja California Sur
+  - sospechosos
+  - activos
+  - fallecidos
+  - recuperados
+  No reporta negativos. Uso activos como confirmados.
+- Colima
+  - positivos 
+  - sospechosos
+  - recuperados
+  - activos
+  - negativos
+  - fallecidos
+  Uso positivos como confirmados
+- Chiapas
+- Durango
+  No reporta fallecidos en web pero si en imagen.
+- Guanajuato
+- Hidalgo
+- Jalisco
+  Reporta 3 conteos: Federal, UdeG y particulares.
+  Uso la suma de los 3.
+- Estado de México
+  Reporta datos en imagen. Solo 2 datos
+- Michoacán
+- Nayarit
+- Oaxaca
+- Quintana Roo
+- Sonora
+- Tamaulipas
+- Tabasco
+  - negativos
+  - sospechosos
+  - confirmados
+  - fallecidos
+- [ ] Tlaxcala - TODO
+- [-] Veracruz - Un dato TODO
+- [ ] Sinaloa - TODO
 
-## Usage
 
-FIXME: explanation
+# Estados no incluidos
 
-    $ java -jar covid-19-estados-0.1.0-standalone.jar [args]
+  
+- Campeche
+  No hay datos visibles
+- Coahuila
+  Usan google Data Studio
+- Chihuahua
+  Reporta datos en imagen
+- CDMX
+  Reporta datos federales
+- Guerrero
+  No reporta datos
+- Morelos
+  Reportan via PDF
+- Nuevo León
+  PDF
+- Puebla
+  Reportan con imagen
+- Querétaro
+  Reportan con imagen
+- [ ] San Luis Potosí - No encuentro datos
+- [ ] Yucatan - No encuentro datos. Imagen
+- [ ] Zacatecas - Reporta con imagen
 
-## Options
+# Qué es y qué no es covid-19-estados
 
-FIXME: listing of options this app accepts.
+ToDo: Extender este punto
 
-## Examples
+## Es un intento por responder preguntas que me hago sobre:
+- Sistema de vigilancia Sentinela
+- La complejidad de observar fenómenos a través de los datos generados
+- Muestreo y estadística
+- Cómo se comunica la información relevante
+- Que viene ahora y que viene después
 
-...
+## Es un pretexto para aprender sobre:
+- Clojure
+-- Workflow and tooling
+- Programación funcional
+- Visualización basada en una semantica (Vega y Vega-Lite)
 
-### Bugs
+## No es
+- Pretexto para generar controversias
+- Un medio para contradecir o exponer fallas
 
-...
+## Por qué
 
-### Any Other Sections
-### That You Think
-### Might be Useful
+# Notas sobre los estados
 
-## License
+# Disclaimer
+Esto es lo que hay.
+Por favor te pido que me hagas saber cualquier error y estoy siempre atento a comentarios y sugerencias.
 
-Copyright © 2020 FIXME
+
+Copyright © 2020 Rogelio Zárate
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
