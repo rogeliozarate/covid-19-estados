@@ -295,15 +295,15 @@
 (defn oaxaca
   "."
   []
-  (let [source (html/select(html/html-resource(java.io.StringReader.(:body (fetch-clj "https://coronavirus.oaxaca.gob.mx/" " " true))))[:p.has-text-centered])
+  (let [source (html/select(html/html-resource(java.io.StringReader.(:body (fetch-clj "https://coronavirus.oaxaca.gob.mx/" " " true))))[:.casos-covid :h1])
         resultados {:clave-entidad "20"
                     :entidad "Oaxaca"
-                    :notificados (second(:content (nth source 0)))
-                    :negativos   (second(:content (nth source 1)))
-                    :sospechosos (second(:content (nth source 2)))
-                    :confirmados (second(:content (nth source 3)))
-                    :recuperados (second(:content (nth source 4)))
-                    :fallecidos  (second(:content (nth source 5)))
+                    :notificados (first(:content (nth source 0)))
+                    :negativos   (first(:content (nth source 1)))
+                    :sospechosos (first(:content (nth source 2)))
+                    :confirmados (first(:content (nth source 3)))
+                    :recuperados (first(:content (nth source 4)))
+                    :fallecidos  (first(:content (nth source 5)))
                     :timestamp (timestamp)
                       }]
      resultados)
