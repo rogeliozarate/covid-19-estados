@@ -1,4 +1,4 @@
-#Importante: Trabajo en proceso.
+# Importante: Trabajo en proceso.
 
 # covid-19-estados
 
